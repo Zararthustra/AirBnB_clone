@@ -39,8 +39,7 @@ class BaseModel:
         updates the public instance attribute updated_at with the current datetime
         """
         date = datetime.now()
-        date = date.isoformat()
-        self.update_at = date
+        self.updated_at = date
 
     def to_dict(self):
         """
@@ -48,8 +47,8 @@ class BaseModel:
         """
         dic = {
                 "id": self.id,
-                "updated_at": self.updated_at.isoformat(),
                 "created_at": self.created_at.isoformat(),
+                "updated_at": self.updated_at.isoformat(),
                 "name": self.name,
                 "my_number": self.my_number,
                 "__class__": self.__class__.__name__
