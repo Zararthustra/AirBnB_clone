@@ -26,18 +26,29 @@ class FileStorage:
     def new(self, obj):
         """
         sets in __objects the obj with key <obj class name>.id
+            args:
+                obj: object input
         """
-        __objects.append("{}.{}: {}".format(obj.__class__.__name__, obj.id, obj))
+        obj_name = obj.__class__.__name__ + "." + obj.id
+        self.__objects[obj_name] = obj
 
     def save(self):
         """
         serializes __objects to the JSON file (path: __file_path)
         """
-        with open(__file_path, mode="w") as f:
-            json.dumps(__objects)
+        new_dict = {}
+        for key in self.__objects:
+            new_dict[key] = self.__objects[key].to_dict()
+        with open(self.__file_path, mode="w") as f:
+            json.dump(new_dict, f)
 
     def reload(self):
         """
-        deserializes the JSON file to __objects (only if the JSON file (__file_path) exists)
-        otherwise, do nothing. If the file doesnt exist, no exception should be raised)
+        deserializes the JSON file to __objects (only if the JSON file exists)
+        otherwise, do nothing)
         """
+        try:
+            with open(self.__file_path) as f:
+                #self.__objects = json.load(f)
+        except:
+            pass
