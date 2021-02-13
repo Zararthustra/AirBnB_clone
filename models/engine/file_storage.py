@@ -3,7 +3,7 @@
 This module is about JSON/dict file storage
 """
 import json
-
+from models.base_model import BaseModel
 
 class FileStorage:
     """
@@ -48,7 +48,9 @@ class FileStorage:
         otherwise, do nothing)
         """
         try:
-            with open(self.__file_path) as f:
-                #self.__objects = json.load(f)
+           with open(self.__file_path) as f:
+                json_file = json.load(f)
+                for key, value in json_file.items():
+                    self.new(eval(value["__class__"])(**value))
         except:
             pass
