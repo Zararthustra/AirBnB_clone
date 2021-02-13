@@ -47,12 +47,8 @@ class BaseModel:
         """
         returns a dictionary containing all keys/values of __dict__ of the instance
         """
-        dic = {
-                "id": self.id,
-                "created_at": self.created_at.isoformat(),
-                "updated_at": self.updated_at.isoformat(),
-                "name": self.name,
-                "my_number": self.my_number,
-                "__class__": self.__class__.__name__
-                }
+        dic = dict(self.__dict__)
+        dic["created_at"] = self.created_at.isoformat()
+        dic["updated_at"] = self.updated_at.isoformat()
+        dic["__class__"] = self.__class__.__name__
         return dic
