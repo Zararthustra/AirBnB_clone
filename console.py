@@ -5,9 +5,10 @@ Entry point of the command interpreter.
 import cmd
 import sys
 import json
-
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
+
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -17,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
     __file_path = "file.json"
-    classes = [ "BaseModel" ]
+    classes = [ "BaseModel", "User" ]
 
     def do_update(self, arg):
         """
