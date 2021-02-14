@@ -1,18 +1,15 @@
 #!/usr/bin/python3
 """
-User's module
+State's module
 """
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
+class State(BaseModel):
     """
-    User's class
+    State's class
     """
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    name = ""
 
     def __init__(self):
         """

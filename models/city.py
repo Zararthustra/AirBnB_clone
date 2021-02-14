@@ -1,18 +1,16 @@
 #!/usr/bin/python3
 """
-User's module
+City's module
 """
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
+class City(BaseModel):
     """
-    User's class
+    City's class
     """
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+    state_id = ""
+    name = ""
 
     def __init__(self):
         """

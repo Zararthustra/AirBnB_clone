@@ -6,6 +6,7 @@ import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel:
     """
     BaseModel class
@@ -20,7 +21,8 @@ class BaseModel:
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
-                    setattr(self, key, datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
+                    setattr(self, key, datetime.strptime
+                            (value, '%Y-%m-%dT%H:%M:%S.%f'))
                 elif key != "__class__":
                     setattr(self, key, value)
         else:
@@ -33,11 +35,13 @@ class BaseModel:
         """
         str magic method
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        class_name = self.__class__.__name__
+        return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
 
     def save(self):
         """
-        updates the public instance attribute updated_at with the current datetime
+        updates the public instance attribute
+        updated_at with the current datetime
         """
         date = datetime.now()
         self.updated_at = date
@@ -45,7 +49,8 @@ class BaseModel:
 
     def to_dict(self):
         """
-        returns a dictionary containing all keys/values of __dict__ of the instance
+        returns a dictionary containing all
+        keys/values of __dict__ of the instance
         """
         dic = dict(self.__dict__)
         dic["created_at"] = self.created_at.isoformat()

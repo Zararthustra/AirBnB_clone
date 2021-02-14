@@ -7,6 +7,11 @@ import sys
 import json
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.state import State
+from models.review import Review
+from models.place import Place
 from models import storage
 
 
@@ -18,11 +23,19 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
     __file_path = "file.json"
-    classes = [ "BaseModel", "User" ]
+    classes = ["BaseModel",
+               "User",
+               "Amenity",
+               "City",
+               "State",
+               "Review",
+               "Place"
+               ]
 
     def do_update(self, arg):
         """
-        Updates an instance based on the class name and id by adding or updating attribute
+        Updates an instance based on the class name
+        and id by adding or updating attribute
         """
         args = arg.split()
         if args == [] or arg == "":
@@ -42,12 +55,11 @@ class HBNBCommand(cmd.Cmd):
             key = args[0] + "." + args[1]
             setattr(stor_a[key], args[2], args[3])
             storage.save()
-            
-
 
     def do_create(self, arg):
         """
-        Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
+        Creates a new instance of BaseModel,
+        saves it (to the JSON file) and prints the id.
         """
         if arg == "":
             print("** class name missing **")
@@ -80,7 +92,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """
-        Prints the string representation of an instance based on the class name and id.
+        Prints the string representation of an
+        instance based on the class name and id.
         """
         args = arg.split()
         if args == [] or arg == "":
@@ -99,7 +112,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """
-        Prints all string representation of all instances based or not on the class name
+        Prints all string representation of all
+        instances based or not on the class name
         """
         stor_a = storage.all()
         obj_list = []
