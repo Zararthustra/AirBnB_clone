@@ -26,7 +26,7 @@ class FileStorage:
     def new(self, obj):
         """
         sets in __objects the obj with key <obj class name>.id
-            args:
+        args:
                 obj: object input
         """
         obj_name = obj.__class__.__name__ + "." + obj.id
@@ -48,7 +48,7 @@ class FileStorage:
         otherwise, do nothing)
         """
         try:
-           with open(self.__file_path) as f:
+            with open(self.__file_path) as f:
                 json_file = json.load(f)
                 for key, value in json_file.items():
                     self.new(eval(value["__class__"])(**value))

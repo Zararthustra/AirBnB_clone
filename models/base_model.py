@@ -18,11 +18,11 @@ class BaseModel:
                 kwargs: assign
         """
         if kwargs:
-            self.id = kwargs["id"]
-            self.my_number = kwargs["my_number"]
-            self.name = kwargs["name"]
-            self.created_at = datetime.strptime(kwargs["created_at"], '%Y-%m-%dT%H:%M:%S.%f')
-            self.updated_at = datetime.strptime(kwargs["updated_at"], '%Y-%m-%dT%H:%M:%S.%f')
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    setattr(self, key, datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f'))
+                elif key != "__class__":
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()

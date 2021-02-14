@@ -13,10 +13,11 @@ class HBNBCommand(cmd.Cmd):
     """
     Class of the command interpreter
     """
-    
+
     prompt = '(hbnb) '
     file = None
     __file_path = "file.json"
+    classes = [ "BaseModel" ]
 
     def do_create(self, arg):
         """
@@ -24,32 +25,42 @@ class HBNBCommand(cmd.Cmd):
         """
         if arg == "":
             print("** class name missing **")
-        if arg == "BaseModel":
+        elif arg not in self.classes:
+            print("** class doesn't exist **")
+        else:
             obj = eval(arg + "()")
             obj.save()
             print(obj.id)
-        else:
+
+    def do_destroy(self, arg):
+        """
+        Deletes an instance based on the class name and id
+        """
+        if arg == "":
+            print("** class name missing **")
+        if arg not in self.classes:
             print("** class doesn't exist **")
+        if arg == "i":
+            print()
 
     def do_show(self, arg):
         """
         Prints the string representation of an instance based on the class name and id.
         """
         args = arg.split()
-        if args[0] == "":
+        if args == [] or arg == "":
             print("** class name missing **")
-        print("ALO1")
-        if args[0] == "BaseModel":
+        elif args[0] not in self.classes:
+            print("** class doesn't exist **")
+        elif len(args) < 2:
+            print("** instance id missing **")
+        elif (args[0] + "." + args[1]) not in storage.all():
+            print("** no instance found **")
+        else:
             key = args[0] + "." + args[1]
             stor_a = storage.all()
-            print(storage.all())
-            print("ALO2")
-            print(stor_a)
             if key in stor_a:
-                print(stor_a["key"])
-        else:
-            print("** class doesn't exist **")
-
+                print(stor_a[key])
 
     def do_help(self, arg):
         """
