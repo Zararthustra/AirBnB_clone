@@ -9,7 +9,7 @@ import models
 
 class BaseModel:
     """
-    BaseModel class
+    BaseModel class creating a basemodel class
     """
     def __init__(self, *args, **kwargs):
         """
@@ -33,7 +33,7 @@ class BaseModel:
 
     def __str__(self):
         """
-        str magic method
+        str magic method that returns this
         """
         class_name = self.__class__.__name__
         return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
