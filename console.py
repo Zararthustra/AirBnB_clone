@@ -32,6 +32,40 @@ class HBNBCommand(cmd.Cmd):
                "Place"
                ]
 
+    def default(self, arg):
+        """
+        Call in case of unknow commmand
+        """
+
+        if "." in arg:
+            args = arg.split('.')
+            class_name = args[0]
+            meth_name = args[1]
+            if meth_name == "all()":
+                self.do_all(class_name)
+            elif meth_name == "count()":
+                self.do_count(class_name)
+            elif meth_name == "show()":
+                self.do_show(class_name + " ")
+            elif meth_name == "destroy()":
+                self.do_destroy(class_name)
+            elif meth_name == "update()":
+                self.do_update(class_name)
+
+    def do_count(self, arg):
+        """
+        Count the number of instance
+        """
+
+        if arg in self.classes:
+            count = 0
+            stor_a = storage.all()
+            for key, value in stor_a.items():
+                
+                if arg == value.__class__.__name__:
+                    count += 1
+            print(count)
+
     def do_update(self, arg):
         """
         Updates an instance based on the class name
