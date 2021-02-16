@@ -11,6 +11,7 @@ class BaseModel:
     """
     BaseModel class creating a basemodel class
     """
+
     def __init__(self, *args, **kwargs):
         """
         constructor

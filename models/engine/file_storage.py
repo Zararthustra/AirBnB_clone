@@ -19,11 +19,6 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def __init__(self):
-        """
-        empty constructor method
-        """
-
     def all(self):
         """
         returns the dictionary __objects
@@ -36,6 +31,7 @@ class FileStorage:
         args:
                 obj: object input
         """
+
         obj_name = obj.__class__.__name__ + "." + obj.id
         self.__objects[obj_name] = obj
 
