@@ -41,5 +41,3 @@ class TestFileStorage(unittest.TestCase):
         obj.my_number = 29
         obj.save()
         self.assertTrue(os.path.exists("file.json"))
-
-
