@@ -14,14 +14,14 @@ from models.place import Place
 
 class FileStorage:
     """
-    FileStorage class
+    FileStorage class filestorage class
     """
     __file_path = "file.json"
     __objects = {}
 
     def __init__(self):
         """
-        constructor
+        empty constructor method
         """
 
     def all(self):
