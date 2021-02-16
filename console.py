@@ -178,6 +178,12 @@ class HBNBCommand(cmd.Cmd):
         self.close()
         return True
 
+    def emptyline(self):
+        """
+        Emptyline method to do nothing when press enter
+        """
+        pass
+
     def close(self):
         """
         Close a file.
