@@ -125,10 +125,11 @@ class HBNBCommand(cmd.Cmd):
                     class_id = key.split(".")
                     if class_id[0] == arg:
                         obj_list.append(stor_a[key].__str__())
+                print(obj_list)
         else:
             for key in stor_a:
                 obj_list.append(stor_a[key].__str__())
-        print(obj_list)
+            print(obj_list)
 
     def do_help(self, arg):
         """
