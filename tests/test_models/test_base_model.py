@@ -30,6 +30,9 @@ class TestBaseModel(unittest.TestCase):
         obj.alist = ["Hello", 19]
         obj.anint = 24
         obj.atuple = (4, "une tulipe")
+        self.assertNotEqual(obj.id, None)
+        self.assertNotEqual(obj.created_at, None)
+        self.assertNotEqual(obj.updated_at, None)
         self.assertEqual(obj.astring, "tata")
         self.assertEqual(obj.alist, ["Hello", 19])
         self.assertEqual(obj.anint, 24)
