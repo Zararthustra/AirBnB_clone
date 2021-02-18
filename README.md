@@ -30,4 +30,7 @@ AirBnB_clone$ ./console.py
 - What is an UUID
 - What is * args and how to use it
 - What is ** kwargs and how to use it
+
+## Authors
+G. Chuinard & A. Mayer
 - How to handle named arguments in a function
