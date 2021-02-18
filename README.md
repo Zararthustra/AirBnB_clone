@@ -13,9 +13,11 @@ AirBnB_clone$ ./console.py
 | --- | --- | --- |
 | create | Creates a new instance of BaseModel, saves it to the JSON file and prints the id | ```(hbnb) create <class name>``` |
 | show | Prints the string representation of an instance based on the class name and id | ```(hbnb) show <class name> <id>``` |
+| <class name>.show(<id>) | Prints the string representation of an instance based on the class name and id | ```(hbnb) <class name>.show(<id>)``` |
 | destroy | Deletes an instance based on the class name and id (save the change into the JSON file) | ```(hbnb) destroy <class name> <id>``` |
 | update | Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file) | ```(hbnb) update <class name> <id> <attribute name> "<attribute value>"``` |
 | all | Prints all string representation of all instances based **or not** on the class name | ```(hbnb) all <class name>``` |
+| <class name>.all() | Prints string representation of all instances based on the class name | ```(hbnb) <class name>.all()``` |
 | help | display help information | ```(hbnb) help <command>``` |
 | quit | exit the program | ```(hbnb) quit``` |
 | EOF | exit the program | ```(hbnb) ctrl+D``` |
