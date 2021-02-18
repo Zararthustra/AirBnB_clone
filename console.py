@@ -137,12 +137,12 @@ class HBNBCommand(cmd.Cmd):
         arg (str): precise the command where the help is needed.
         """
 
-        tab = ["quit", "EOF"]
+        tab = ["quit", "EOF", "show", "create", "destroy", "all", "update"]
         if arg == "help" or arg == "":
             print()
             print("Documented commands (type help <topic>):")
             print("========================================")
-            print("EOF  help  quit")
+            print("EOF help quit show create destroy all update")
             print()
         if arg in tab:
             eval("self.help_" + arg + "()")
@@ -153,6 +153,52 @@ class HBNBCommand(cmd.Cmd):
         """
 
         print("Quit command to exit the program")
+        print()
+
+    def help_update(self):
+        """
+        Display the help for the command update.
+        """
+
+        print("Updates or add an instance attribute.")
+        print("Usage:")
+        print("update <class name> <id> <attribute name> <attribute value>")
+        print()
+
+    def help_all(self):
+        """
+        Display the help for the command all.
+        """
+
+        print("Display all object with or without class name.")
+        print("Usage: all <class name>")
+        print()
+
+    def help_destroy(self):
+        """
+        Display the help for the command destroy.
+        """
+
+        print("Destroy an object.")
+        print("Usage: destroy <class name> <id>")
+        print()
+
+    def help_show(self):
+        """
+        Display the help for the command show.
+        """
+
+        print("Show an object.")
+        print("Usage: show <class name> <id>")
+        print()
+
+    def help_create(self):
+        """
+        Display the help for the command create.
+        """
+
+        print("Create an object.")
+        print("Usage: create <class name>")
         print()
 
     def help_EOF(self):
