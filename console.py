@@ -23,14 +23,15 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
     __file_path = "file.json"
-    classes = ["BaseModel",
-            "User",
-            "Amenity",
-            "City",
-            "State",
-            "Review",
-            "Place"
-            ]
+    classes = [
+                "BaseModel",
+                "User",
+                "Amenity",
+                "City",
+                "State",
+                "Review",
+                "Place"
+                ]
 
     def default(self, arg):
         """
@@ -52,7 +53,7 @@ class HBNBCommand(cmd.Cmd):
                 self.do_destroy(class_name + " " + class_id[1])
             elif meth_name == "update()":
                 self.do_update(class_name)
-    
+
     def do_count(self, arg):
         """
         Count the number of instance
