@@ -35,5 +35,7 @@ AirBnB_clone$ ./console.py
 - What is ** kwargs and how to use it
 - How to handle named arguments in a function
 
+## Web_Static Screenshot
+![Alt Text](https://github.com/Zararthustra/AirBnB_clone/blob/main/web_static/images/hbnb_screenshot.png)
 ## Authors
 G. Chuinard & A. Mayer
